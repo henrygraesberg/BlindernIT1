@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+    <head>sfa
+        <title>Whack-a-mole</title>
+
+        <link rel="stylesheet" href="../CSS/stylesheet.css">
+    </head>
+    <body>
+        <h1>Whack-a-mole</h1>
+
+        <div id="Game">
+            <h2 id="GameRules">Whack <input type="number" placeholder="5"> moles to win!</h2>
+
+            <img src="placeholderimg_empty" alt="" id="img_1"> <img src="placeholderimg_empty" alt="" id="img_2"> <img src="placeholderimg_empty" alt="" id="img_3">
+            <img src="placeholderimg_empty" alt="" id="img_4"> <img src="placeholderimg_empty" alt="" id="img_5"> <img src="placeholderimg_empty" alt="" id="img_6">
+            <img src="placeholderimg_empty" alt="" id="img_7"> <img src="placeholderimg_empty" alt="" id="img_8"> <img src="placeholderimg_empty" alt="" id="img_9">
+
+            <h2 id="ScoreCounter">Score: 0</h2>
+            <button id="RestartButton"><h3>Restart Game</h3></button>
+        </div>
+    </body>
+    <script>
+        const winScoreInput = document.querySelector("input");
+
+        const img1 = document.getElementById("img_1");
+        img1.addEventListener("click", ClickedOne);
+        const img2 = document.getElementById("img_2");
+        img2.addEventListener("click", ClickedTwo);
+        const img3 = document.getElementById("img_3");
+        img3.addEventListener("click", ClickedThree);
+        const img4 = document.getElementById("img_4");
+        img4.addEventListener("click", ClickedFour);
+        const img5 = document.getElementById("img_5");
+        img5.addEventListener("click", ClickedFive);
+        const img6 = document.getElementById("img_6");
+        img6.addEventListener("click", ClickedSix);
+        const img7 = document.getElementById("img_7");
+        img7.addEventListener("click", ClickedSeven);
+        const img8 = document.getElementById("img_8");
+        img8.addEventListener("click", ClickedEight);
+        const img9 = document.getElementById("img_9");
+        img9.addEventListener("click", ClickedNine);
+
+        const scoreText = document.getElementById("ScoreCounter");
+
+        const restartButton = document.getElementById("RestartButton");
+        restartButton.addEventListener("click", RestartGame);
+
+        let winScore;
+
+        let playerScore;
+
+        function ClickedOne() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedTwo() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedThree() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedFour() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedFive() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedSix() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedSeven() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedEight() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+        function ClickedNine() {
+            if(!timeoutLive && !gameover) {
+                if(img_.src == "placeholderMole") {
+                    PlusPlayerScore();
+                }
+                else {
+                    MinusPlayerScore();
+                }
+            }
+        }
+
+        function PlusPlayerScore() {
+            playerScore++;
+
+            scoreText.innerHTML = "Score: " + playerScore;
+
+            if(playerScore >= winScore) {
+                gameover = true;
+
+                scoreText.innerHTML = "Your score reached " + winScore + ", and you won the game! Press the reset button to play again";
+            }
+            timeoutLive = true;
+            setTimeout(BetweenRounds, 1500);
+        }
+        function MinusPlayerScore() {
+            playerScore--;
+
+            scoreText.innerHTML = "Score: " + playerScore;
+
+            timeoutLive = true;
+            setTimeout(BetweenRounds, 1500);
+        }
+
+        function BetweenRounds() {
+            timeoutLive = false;
+        }
+
+        function ResetGame() {
+            timeoutLive = false;
+
+            gameover = false;
+
+            scoreText = "Score: 0";
+        }
+    </script>
+</html>
