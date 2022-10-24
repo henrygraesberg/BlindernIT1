@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Stein - Saks - Papir</title>
+        
+        <link rel="stylesheet" href="../CSS/styleSheet.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body id="Background">
+        <h1 id="TopHeader">Stein-Saks-Papir</h1>
+        <div id="Game">
+            <h2 id="GameRules">Første spiller som når <input type="number" id="WinScoreInput" placeholder="10"> poeng vinner</h2>
+            
+            <div id="Images">
+                <img src="../bilder_stein_saks_papir/spiller_stein.png" id="stein">
+                <img src="../bilder_stein_saks_papir/spiller_saks.png" id="saks">
+                <img src="../bilder_stein_saks_papir/spiller_papir.png" id="papir">
+                
+                <img src="../bilder_stein_saks_papir/maskin_ukjent.png" id="CPUimage">
+            </div>
+            
+            <h2 id="Resultat">Resultat:</h2>
+            <h2>Poeng Spiller: <span id="pScoreText">0</span></h2>
+            <h2>Poeng Maskin: <span id="mScoreText">0</span></h2>
+            
+            <button id="RestartButton"><h3>Start på nytt</h3></button>
+        </div>
+    </body>
+    <script>
+        let pScore = 0;
+        let mScore = 0;
+        
+        const winScoreInput = document.getElementById("WinScoreInput");
+        let winScore = 10;
+        
+        winScoreInput.addEventListener("change", SetWinCondition);
+        
+        const pScoreText = document.getElementById("pScoreText");
+        const mScoreText = document.getElementById("mScoreText");
+        const rText = document.getElementById("Resultat");
+        
+        const pImg1 = document.getElementById("stein");
+        const pImg2 = document.getElementById("saks");
+        const pImg3 = document.getElementById("papir");
+        
+        pImg1.addEventListener("click", ChoiceOne);
+        pImg2.addEventListener("click", ChoiceTwo);
+        pImg3.addEventListener("click", ChoiceThree);
+        
+        const mImg = document.getElementById("CPUimage");
+        const mPossibleImages = ["../bilder_stein_saks_papir/maskin_stein.png", "../bilder_stein_saks_papir/maskin_saks.png", "../bilder_stein_saks_papir/maskin_papir.png"];
+        
+        const mUnknownImage = "../bilder_stein_saks_papir/maskin_ukjent.png";
+        
+        const restartButton = document.getElementById("RestartButton");
+        
+        restartButton.addEventListener("click", Reset);
+        
+        let CPUchoice;
+        
+        let timeoutLive = false;
+        
+        let gameOver = false;
+        
+        function SetWinCondition() {
+            if(winScoreInput.value != '') {
+                winScore = Number(winScoreInput.value);
+                winScoreInput.placeholder = winScore;
+            }
+        }
+        
+        function PlusPlayerScore() {
+            pScore++;
+            pScoreText.innerHTML = pScore;
+            
+            rText.innerHTML = "Resultat: Du vant!";
+            
+            if(pScore >= winScore) {
+                gameOver = true;
+                
+                rText.innerHTML = "Resultat: Du nådde " + winScore + " poeng, og vant spillet! Trykk start på nytt for å spille igjen";
+            }
+        }
+        
+        function PlusCPUScore() {
+            mScore++;
+            mScoreText.innerHTML = mScore;
+            
+            rText.innerHTML = "Resultat: Du tapte :(";
+            
+            if(mScore >= winScore) {
+                gameOver = true;
+                
+                rText.innerHTML = "Resultat: Maskin nådde " + winScore + " poeng, og vant spillet. Du tapte :( trykk start på nytt for å spille igjen";
+            }
+        }
+        
+        function RandomizeCPU() {
+            CPUchoice = Math.random();
+            CPUchoice *= 3
+            CPUchoice = Math.floor(CPUchoice);
+            
+            mImg.src = mPossibleImages[CPUchoice];
+        }
+        
+        
+        function BetweenRounds() {
+            if(!gameOver) {
+                rText.innerHTML = "Resultat:";
+                timeoutLive = false;
+                
+                mImg.src = mUnknownImage;
+            }
+        }
+        
+        function ChoiceOne() {
+            if(!timeoutLive && !gameOver) {
+                RandomizeCPU();
+                timeoutLive = true;
+                setTimeout(BetweenRounds, 1000);
+            
+                if(CPUchoice == 1) {
+                    PlusPlayerScore();
+                }
+                else if(CPUchoice == 0) {
+                    rText.innerHTML = "Resultat: Uavgjort";
+                }
+                else {
+                    PlusCPUScore();
+                }
+            }
+        }
+        
+        function ChoiceTwo() {
+            if(!timeoutLive && !gameOver) {
+                RandomizeCPU();
+                timeoutLive = true;
+                setTimeout(BetweenRounds, 1000);
+            
+                if(CPUchoice == 2) {
+                    PlusPlayerScore();
+                }
+                else if(CPUchoice == 1) {
+                    rText.innerHTML = "Resultat: Uavgjort";
+                }
+                else {
+                    PlusCPUScore();
+                }
+            }
+        }
+        
+        function ChoiceThree() {
+            if(!timeoutLive && !gameOver) {
+                RandomizeCPU();
+                timeoutLive = true;
+                setTimeout(BetweenRounds, 1000);
+            
+                if(CPUchoice == 0) {
+                    PlusPlayerScore();
+                }
+                else if(CPUchoice == 2) {
+                    rText.innerHTML = "Resultat: Uavgjort";
+                }
+                else {
+                    PlusCPUScore();
+                }
+            }
+        }
+        
+        function Reset() {
+            mScore = 0;
+            pScore = 0;
+            
+            timeoutLive = false;
+            
+            gameOver = false;
+            
+            rText.innerHTML = "Resultat: ";
+            
+            mScoreText.innerHTML = mScore;
+            pScoreText.innerHTML = pScore;
+            
+            mImg.src = mUnknownImage;
+        }
+    </script>
+</html>

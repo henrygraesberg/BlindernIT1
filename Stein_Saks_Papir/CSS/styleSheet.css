@@ -1,0 +1,41 @@
+#Background {
+    width: 100% !important;
+    background-color: dimgray;
+    color: white;
+    font-family: "Arial", sans-serif;
+}
+
+#TopHeader {
+    text-shadow: 3px 3px 3px #000;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 9px;
+    text-align: center;
+}
+
+#GameRules {
+    margin: auto;
+    text-align: center;
+}
+
+#WinScoreInput {
+    width: 30px;
+}
+
+#Game {
+    width: 80%;
+    border: 3px solid #8500ff;
+    margin: auto;
+    background-color: crimson;
+    padding: 20px;
+}
+
+#CPUimage {
+    float: right;
+}
+
+#RestartButton {
+    margin: auto;
+    background-color: #0b378e;
+    color: white;
+}
