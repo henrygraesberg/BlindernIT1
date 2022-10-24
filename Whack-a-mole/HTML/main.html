@@ -21,6 +21,7 @@
     </body>
     <script>
         const winScoreInput = document.querySelector("input");
+        winScoreInput.addEventListener("change", UpdateWinScoreCondition);
 
         const img1 = document.getElementById("img_1");
         img1.addEventListener("click", ClickedOne);
@@ -46,7 +47,7 @@
         const restartButton = document.getElementById("RestartButton");
         restartButton.addEventListener("click", RestartGame);
 
-        let winScore;
+        let winScore = 5;
 
         let playerScore;
 
@@ -161,6 +162,15 @@
 
             timeoutLive = true;
             setTimeout(BetweenRounds, 1500);
+        }
+
+        function UpdateWinScoreCondition() {
+            if(winScoreInput.value != '') {
+                winScore = winScoreInput.value;
+            }
+            else {
+                winScore = 5;
+            }
         }
 
         function BetweenRounds() {
