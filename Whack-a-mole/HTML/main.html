@@ -23,24 +23,16 @@
         const winScoreInput = document.querySelector("input");
         winScoreInput.addEventListener("change", UpdateWinScoreCondition);
 
-        const img1 = document.getElementById("img_1");
-        img1.addEventListener("click", ClickedOne);
-        const img2 = document.getElementById("img_2");
-        img2.addEventListener("click", ClickedTwo);
-        const img3 = document.getElementById("img_3");
-        img3.addEventListener("click", ClickedThree);
-        const img4 = document.getElementById("img_4");
-        img4.addEventListener("click", ClickedFour);
-        const img5 = document.getElementById("img_5");
-        img5.addEventListener("click", ClickedFive);
-        const img6 = document.getElementById("img_6");
-        img6.addEventListener("click", ClickedSix);
-        const img7 = document.getElementById("img_7");
-        img7.addEventListener("click", ClickedSeven);
-        const img8 = document.getElementById("img_8");
-        img8.addEventListener("click", ClickedEight);
-        const img9 = document.getElementById("img_9");
-        img9.addEventListener("click", ClickedNine);
+        const img = [document.getElementById("img_1"), document.getElementById("img_2"), document.getElementById("img_3"), document.getElementById("img_4"), document.getElementById("img_5"), document.getElementById("img_6"), document.getElementById("img_7"), document.getElementById("img_8"), document.getElementById("img_9")];
+        img[0].addEventListener("click", ClickedOne);
+        img[1].addEventListener("click", ClickedTwo);
+        img[2].addEventListener("click", ClickedThree);
+        img[3].addEventListener("click", ClickedFour);
+        img[4].addEventListener("click", ClickedFive);
+        img[5].addEventListener("click", ClickedSix);
+        img[6].addEventListener("click", ClickedSeven);
+        img[7].addEventListener("click", ClickedEight);
+        img[8].addEventListener("click", ClickedNine);
 
         const scoreText = document.getElementById("ScoreCounter");
 
@@ -51,9 +43,15 @@
 
         let playerScore;
 
+        const emptyImage = "placeholdeimg_empty";
+
+        const moleImage = "placeholderimg_mole";
+
+        let gameover = false;
+
         function ClickedOne() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -62,8 +60,8 @@
             }
         }
         function ClickedTwo() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -72,8 +70,8 @@
             }
         }
         function ClickedThree() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -82,8 +80,8 @@
             }
         }
         function ClickedFour() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -92,8 +90,8 @@
             }
         }
         function ClickedFive() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -102,8 +100,8 @@
             }
         }
         function ClickedSix() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -113,7 +111,7 @@
         }
         function ClickedSeven() {
             if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -122,8 +120,8 @@
             }
         }
         function ClickedEight() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -132,8 +130,8 @@
             }
         }
         function ClickedNine() {
-            if(!timeoutLive && !gameover) {
-                if(img_.src == "placeholderMole") {
+            if(!gameover) {
+                if(img_.src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -153,7 +151,6 @@
                 scoreText.innerHTML = "Your score reached " + winScore + ", and you won the game! Press the reset button to play again";
             }
             timeoutLive = true;
-            setTimeout(BetweenRounds, 1500);
         }
         function MinusPlayerScore() {
             playerScore--;
@@ -161,7 +158,6 @@
             scoreText.innerHTML = "Score: " + playerScore;
 
             timeoutLive = true;
-            setTimeout(BetweenRounds, 1500);
         }
 
         function UpdateWinScoreCondition() {
@@ -178,11 +174,15 @@
         }
 
         function RestartGame() {
-            timeoutLive = false;
-
             gameover = false;
 
             scoreText.innerHTML = "Score: 0";
+        }
+
+        function AddMole() {
+            let chosenMole = Math.floor(Math.random() * 9);
+
+            img[chosenMole].src = moleImage
         }
     </script>
 </html>
