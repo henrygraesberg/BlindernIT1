@@ -1,0 +1,12 @@
+#Game {
+    margin: auto;
+    width: 80%;
+    border: 3px solid #8500ff;
+    background-color: linen;
+    padding: 20px;
+}
+
+.moleImage {
+    width: 100px;
+    margin: auto;
+}

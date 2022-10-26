@@ -9,20 +9,23 @@
         <h1>Whack-a-mole</h1>
 
         <div id="Game">
-            <h2 id="GameRules">Whack <input type="number" placeholder="5"> moles to win!</h2>
+            <h2 id="GameRules">Whack <input type="number" placeholder="10"> moles to win!</h2>
 
-            <img src="../Pictures/placeholderimg_empty" alt="" id="img_1"> <img src="../Pictures/placeholderimg_empty" alt="" id="img_2"> <img src="../Pictures/placeholderimg_empty" alt="" id="img_3">
-            <img src="../Pictures/placeholderimg_empty" alt="" id="img_4"> <img src="../Pictures/placeholderimg_empty" alt="" id="img_5"> <img src="../Pictures/placeholderimg_empty" alt="" id="img_6">
-            <img src="../Pictures/placeholderimg_empty" alt="" id="img_7"> <img src="../Pictures/placeholderimg_empty" alt="" id="img_8"> <img src="../Pictures/placeholderimg_empty" alt="" id="img_9">
+            <div id="imgRow1">
+            <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_1"> <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_2"> <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_3">
+            </div>
+            <div id="imgRow2">
+            <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_4"> <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_5"> <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_6">
+            </div>
+            <div id="imgRow2">
+            <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_7"> <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_8"> <img src="../Pictures/placeholderimg_empty.png" class="moleImage" id="img_9">
+            </div>
 
             <h2 id="ScoreCounter">Score: 0</h2>
             <button id="RestartButton"><h3>Restart Game</h3></button>
         </div>
     </body>
     <script>
-        const winScoreInput = document.querySelector("input");
-        winScoreInput.addEventListener("change", UpdateWinScoreCondition);
-
         const img = [document.getElementById("img_1"), document.getElementById("img_2"), document.getElementById("img_3"), document.getElementById("img_4"), document.getElementById("img_5"), document.getElementById("img_6"), document.getElementById("img_7"), document.getElementById("img_8"), document.getElementById("img_9")];
         img[0].addEventListener("click", ClickedOne);
         img[1].addEventListener("click", ClickedTwo);
@@ -34,110 +37,134 @@
         img[7].addEventListener("click", ClickedEight);
         img[8].addEventListener("click", ClickedNine);
 
+        const emptyImage = "../Pictures/placeholderimg_empty.png";
+        const moleImage = "../Pictures/placeholderimg_mole.png";
+
+        imgIsMole = [false, false, false, false, false, false, false, false, false];
+
         const scoreText = document.getElementById("ScoreCounter");
+        let playerScore = 0;
 
         const restartButton = document.getElementById("RestartButton");
         restartButton.addEventListener("click", RestartGame);
 
-        let winScore = 5;
-
-        let playerScore;
-
-        const emptyImage = "../Pictures/placeholdeimg_empty";
-
-        const moleImage = "../Pictures/placeholderimg_mole";
+        const winScoreInput = document.querySelector("input");
+        winScoreInput.addEventListener("change", UpdateWinScoreCondition);
+        let winScore = winScoreInput.placeholder;
 
         let gameover = false;
 
+        setTimeout(AddMole, 1000);
+
+        setTimeout(RemoveMoles, 1700);
+
         function ClickedOne() {
             if(!gameover) {
-                if(img[0].src == moleImage) {
+                if(imgIsMole[0] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[0].src = emptyImage;
         }
         function ClickedTwo() {
             if(!gameover) {
-                if(img[1].src == moleImage) {
+                if(imgIsMole[1] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[1].src = emptyImage;
         }
         function ClickedThree() {
             if(!gameover) {
-                if(img[2].src == moleImage) {
+                if(imgIsMole[2] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[2].src = emptyImage;
         }
         function ClickedFour() {
             if(!gameover) {
-                if(img[3].src == moleImage) {
+                if(imgIsMole[3] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[3].src = emptyImage;
         }
         function ClickedFive() {
             if(!gameover) {
-                if(img[4].src == moleImage) {
+                if(imgIsMole[4] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[4].src = emptyImage;
         }
         function ClickedSix() {
             if(!gameover) {
-                if(img[5].src == moleImage) {
+                if(imgIsMole[5] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[5].src = emptyImage;
         }
         function ClickedSeven() {
-            if(!timeoutLive && !gameover) {
-                if(img[6].src == moleImage) {
+            if(!gameover) {
+                if(imgIsMole[6] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[6].src = emptyImage;
         }
         function ClickedEight() {
             if(!gameover) {
-                if(img[7].src == moleImage) {
+                if(imgIsMole[7] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+            
+            img[7].src = emptyImage;
         }
         function ClickedNine() {
             if(!gameover) {
-                if(img[8].src == moleImage) {
+                if(imgIsMole[8] ==  true) {
                     PlusPlayerScore();
                 }
                 else {
                     MinusPlayerScore();
                 }
             }
+
+            img[8].src = emptyImage;
         }
 
         function PlusPlayerScore() {
@@ -150,22 +177,21 @@
 
                 scoreText.innerHTML = "Your score reached " + winScore + ", and you won the game! Press the reset button to play again";
             }
-            timeoutLive = true;
         }
         function MinusPlayerScore() {
-            playerScore--;
-
-            scoreText.innerHTML = "Score: " + playerScore;
-
-            timeoutLive = true;
+            if(!gameover) {
+                playerScore--;
+                
+                scoreText.innerHTML = "Score: " + playerScore;
+            }
         }
 
         function UpdateWinScoreCondition() {
             if(winScoreInput.value != '') {
-                winScore = winScoreInput.value;
+                winScore = Number(winScoreInput.value);
             }
             else {
-                winScore = 5;
+                winScore = winScoreInput.placeholder;
             }
         }
 
@@ -176,19 +202,37 @@
         function RestartGame() {
             gameover = false;
 
+            playerScore = 0;
+
             scoreText.innerHTML = "Score: 0";
+
+            setTimeout(AddMole, 1000);
+
+            console.log("game restarted");
         }
 
         function AddMole() {
-            for (i in Range(img.length)) {
-                img[i] = emptyImage;
+            if(!gameover) {
+                let chosenMole = Math.floor(Math.random() * 9);
+
+                img[chosenMole].src = moleImage;
+
+                imgIsMole[chosenMole] = true;
+            
+                setTimeout(AddMole, 1500);
+            }
+        }
+
+        function RemoveMoles() {
+            for(let i = 0; i < img.length; i++) {
+                img[i].src = emptyImage;
+
+                imgIsMole[i] = false;
             }
 
-            let chosenMole = Math.floor(Math.random() * 9);
+            console.log("moles emptied")
 
-            img[chosenMole].src = moleImage;
-            
-            setTimeout(AddMole, 2000);
+            setTimeout(RemoveMoles, 1700);
         }
     </script>
 </html>
