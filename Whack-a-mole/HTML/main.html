@@ -51,7 +51,7 @@
 
         function ClickedOne() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[0].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -61,7 +61,7 @@
         }
         function ClickedTwo() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[1].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -71,7 +71,7 @@
         }
         function ClickedThree() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[2].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -81,7 +81,7 @@
         }
         function ClickedFour() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[3].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -91,7 +91,7 @@
         }
         function ClickedFive() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[4].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -101,7 +101,7 @@
         }
         function ClickedSix() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[5].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -111,7 +111,7 @@
         }
         function ClickedSeven() {
             if(!timeoutLive && !gameover) {
-                if(img_.src == moleImage) {
+                if(img[6].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -121,7 +121,7 @@
         }
         function ClickedEight() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[7].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -131,7 +131,7 @@
         }
         function ClickedNine() {
             if(!gameover) {
-                if(img_.src == moleImage) {
+                if(img[8].src == moleImage) {
                     PlusPlayerScore();
                 }
                 else {
@@ -180,9 +180,15 @@
         }
 
         function AddMole() {
+            for (i in Range(img.length)) {
+                img[i] = emptyImage;
+            }
+
             let chosenMole = Math.floor(Math.random() * 9);
 
-            img[chosenMole].src = moleImage
+            img[chosenMole].src = moleImage;
+
+            setTimeout(AddMole, 2000);
         }
     </script>
 </html>
