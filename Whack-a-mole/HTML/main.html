@@ -54,9 +54,9 @@
 
         let gameover = false;
 
-        setTimeout(AddMole, 1000);
+        setInterval(AddMole, 1200);
 
-        setTimeout(RemoveMoles, 1700);
+        setInterval(RemoveMoles, 2000);
 
         function ClickedOne() {
             if(!gameover) {
@@ -218,8 +218,6 @@
                 img[chosenMole].src = moleImage;
 
                 imgIsMole[chosenMole] = true;
-            
-                setTimeout(AddMole, 1500);
             }
         }
 
@@ -231,8 +229,6 @@
             }
 
             console.log("moles emptied")
-
-            setTimeout(RemoveMoles, 1700);
         }
     </script>
 </html>
