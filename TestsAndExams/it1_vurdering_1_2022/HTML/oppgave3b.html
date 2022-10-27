@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <head>
+        <title>Oppgave 3</title>
+        <style>
+            #hoved {
+				width: 800px;
+				background-color: rgb(239, 228, 176);
+				margin: auto;
+			}
+
+			h1 {
+				margin-left: .7%;
+			}
+
+			p {
+				margin-left: .7%;
+			}
+
+            img {
+                margin-left: .7%;
+                margin-right: .7%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="hoved">
+            <h1>Bildespillet</h1>
+
+            <img src="../Images/black.png" id="black"> <img src="../Images/dark_grey.png" id="darkgrey"><img src="../Images/light_grey.png" id="lightgrey"><img src="../Images/white.png" id="white">
+
+            <p id="Message">Melding: </p>
+        </div>
+    </body>
+    <script>
+        const pImages = [document.getElementById("black"), document.getElementById("darkgrey"), 
+                         document.getElementById("lightgrey"), document.getElementById("white")];
+
+        pImages[0].addEventListener("click", ClickedOne);
+        pImages[1].addEventListener("click", ClickedTwo);
+        pImages[2].addEventListener("click", ClickedThree);
+        pImages[3].addEventListener("click", ClickedFour);
+
+        const message = document.getElementById("Message");
+
+        function ClickedOne() {
+            message.innerHTML = "Melding: Du klikket på det svarte bildet!";
+        }
+        function ClickedTwo() {
+            message.innerHTML = "Melding: Du klikket på det grå bildet!";
+        }
+        function ClickedThree() {
+            message.innerHTML = "Melding: Du klikket på det lysegrå bildet!";
+        }
+        function ClickedFour() {
+            message.innerHTML = "Melding: Du klikket på det hvite bildet!";
+        }
+    </script>
+</html>

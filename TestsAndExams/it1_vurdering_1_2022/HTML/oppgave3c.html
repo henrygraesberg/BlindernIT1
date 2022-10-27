@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+    <head>
+        <title>Oppgave 3</title>
+        <style>
+            #hoved {
+				width: 800px;
+				background-color: rgb(239, 228, 176);
+				margin: auto;
+			}
+
+			h1 {
+				margin-left: .7%;
+			}
+
+			p {
+				margin-left: .7%;
+			}
+
+            img {
+                margin-left: .7%;
+                margin-right: .7%;
+            }
+
+            #RandomImage {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="hoved">
+            <h1>Bildespillet</h1>
+
+            <img src="../Images/black.png" id="black"> <img src="../Images/dark_grey.png" id="darkgrey"><img src="../Images/light_grey.png" id="lightgrey"><img src="../Images/white.png" id="white"> <img src="../Images/ukjent.png" id="RandomImage">
+
+            <p id="Message">Melding: </p>
+            
+            <p id="Points">Poeng: 5</p>
+        </div>
+    </body>
+    <script>
+        const pImages = [document.getElementById("black"), document.getElementById("darkgrey"), 
+                         document.getElementById("lightgrey"), document.getElementById("white")];
+
+        pImages[0].addEventListener("click", ClickedOne);
+        pImages[1].addEventListener("click", ClickedTwo);
+        pImages[2].addEventListener("click", ClickedThree);
+        pImages[3].addEventListener("click", ClickedFour);
+        
+        const cpuImage = document.getElementById("RandomImage");
+
+        const possibleImages = ["../Images/black.png", "../Images/dark_grey.png", "../Images/light_grey.png", "../Images/white.png"];
+
+        const unknownImage = "../Images/ukjent.png";
+
+        const message = document.getElementById("Message");
+
+        const pointsOutput = document.getElementById("Points");
+        
+        let pScore = 5;
+
+        let timeoutLive = false;
+
+        let gameover = false;
+
+        function ClickedOne() {
+            if(!gameover && !timeoutLive) {
+                let cpuChoice = Math.floor(Math.random() * 4);
+
+                cpuImage.src = possibleImages[cpuChoice];
+
+                if(cpuChoice == 0) {
+                    MinusPoints();
+                }
+                else {
+                    PlusPoints();
+                }
+            }
+        }
+
+        function ClickedTwo() {
+            if(!gameover && !timeoutLive) {
+                let cpuChoice = Math.floor(Math.random() * 4);
+
+                cpuImage.src = possibleImages[cpuChoice];
+
+                if(cpuChoice == 1) {
+                    MinusPoints();
+                }
+                else {
+                    PlusPoints();
+                }
+            }
+        }
+
+        function ClickedThree() {
+            if(!gameover && !timeoutLive) {
+                let cpuChoice = Math.floor(Math.random() * 4);
+
+                cpuImage.src = possibleImages[cpuChoice];
+
+                if(cpuChoice == 2) {
+                    MinusPoints();
+                }
+                else {
+                    PlusPoints();
+                }
+            }
+        }
+
+        function ClickedFour() {
+            if(!gameover && !timeoutLive) {
+                let cpuChoice = Math.floor(Math.random() * 4);
+
+                cpuImage.src = possibleImages[cpuChoice];
+
+                if(cpuChoice == 3) {
+                    MinusPoints();
+                }
+                else {
+                    PlusPoints();
+                }
+            }
+        }
+
+        function PlusPoints() {
+            pScore++;
+
+            pointsOutput.innerHTML = "Poeng: " + pScore;
+
+            message.innerHTML = "Melding: Du fikk 1 poeng!"
+
+            if(pScore >= 10) {
+                gameover = true;
+
+                message.innerHTML = "Melding: Spiller vant!";
+            }
+            else {
+                timeoutLive = true;
+
+                setTimeout(TimeoutLive, 1500);
+            }
+        }
+
+        function MinusPoints() {
+            pScore -= 4;
+
+            message.innerHTML = "Melding: Maskinen valgte det samme som deg, og tok 4 poeng fra deg"
+
+            pointsOutput.innerHTML = "Poeng: " + pScore;
+
+            if(pScore <= 0) {
+                gameover = true;
+
+                message.innerHTML = "Melding: Maskin vant :(";
+            }
+            else {
+                timeoutLive = true;
+
+                setTimeout(TimeoutLive, 1500);
+            }
+        }
+
+        function TimeoutLive() {
+            timeoutLive = false;
+
+            message.innerHTML = "Melding: ";
+
+            cpuImage.src = unknownImage;
+        }
+    </script>
+</html>

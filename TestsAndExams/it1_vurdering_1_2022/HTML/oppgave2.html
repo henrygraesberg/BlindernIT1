@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oppgave 2</title>
+
+        <style>
+            #hoved {
+				width: 800px;
+				background-color: rgb(239, 228, 176);
+				margin: auto;
+			}
+
+			h1 {
+				margin-left: .7%;
+			}
+
+			p {
+				margin-left: .7%;
+			}
+        </style>
+    </head>
+    <body>
+        <div id="hoved">
+            <h1>Lønnsregning</h1>
+            <p>Alder: <input type="number" id="ageInput"></p>
+            <p>Antall timer: <input type="number" id="hoursInput"></p>
+            <button>Beregn lønn</button>
+            <p id="wageOutput">Timelønn:</p>
+            <p id="earnedOutput">Samlet lønn:</p>
+            <p id="errorMessage"></p>
+        </div>
+    </body>
+    <script>
+        const ageInput = document.getElementById("ageInput");
+
+        const hoursInput = document.getElementById("hoursInput");
+
+        const button = document.querySelector("button");
+
+        const wageOutput = document.getElementById("wageOutput");
+
+        const earnedOutput = document.getElementById("earnedOutput");
+
+        const errorMessage = document.getElementById("errorMessage");
+
+        button.addEventListener("click", CalculateWage);
+
+        function CalculateWage() {
+            errorMessage.innerHTML = "";
+
+            let age = Number(ageInput.value);
+
+            let hours = Number(hoursInput.value);
+
+            let wage = 0;
+
+            if(age < 15) {
+                errorMessage.innerHTML = "Du er for ung til å jobbe. Vent til du er 15";
+            }
+            else if(age >= 70) {
+                errorMessage.innerHTML = "Du er for gammel til å jobbe. Nyt pensjonistlivet!";
+            }
+            else if(age >= 67) {
+                wage = 160;
+            }
+            else if(age >= 18) {
+                wage = 320;
+
+            }
+            else {
+                wage = 220;
+            }
+
+            wageOutput.innerHTML = "Timeslønn: " + wage;
+
+            earnedOutput.innerHTML = "Samlet lønn: " + wage*hours;
+        }
+    </script>
+</html>

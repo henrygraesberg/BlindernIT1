@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Oppgave 1</title>
+		<style>
+			#hoved {
+				width: 800px;
+				background-color: rgb(239, 228, 176);
+				margin: auto;
+			}
+
+			h1 {
+				margin-left: .7%;
+			}
+
+			p {
+				margin-left: .7%;
+			}
+		</style>
+    </head>
+    <body>
+		<div id="hoved">
+			<h1>Alderskontroll</h1>
+			<p><input type="number"><button>Sjekk alder</button></p>
+			<p id="message">Melding: </p>
+		</div>
+    </body>
+	<script>
+		const inputField = document.querySelector("input");
+
+		const button = document.querySelector("button");
+
+		const messageField = document.querySelector("#message");
+
+		button.addEventListener("click", CheckAge);
+
+		function CheckAge() {
+			const messages = [" ...din nybegynner!", " ...din sleiping!", " ...din luring!"]
+
+			let randNum = Math.floor(Math.random() * 3);
+
+			let givenMessage = messages[randNum];
+
+			if(inputField.value != '') {
+				let age = Number(inputField.value);
+
+				if(age < 18) {
+					messageField.innerHTML = "Melding: Du er ungdom" + givenMessage;
+				}
+				else {
+					messageField.innerHTML = "Melding: Du er voksen" + givenMessage;
+				}
+			}
+			else {
+				messageField.innerHTML = "Melding: Du må skrive et tall" + givenMessage;
+			}
+		}
+	</script>
+</html>
+
+
+
+
+
+
