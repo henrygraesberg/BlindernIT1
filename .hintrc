@@ -8,6 +8,8 @@
       {
         "html-has-lang": "off"
       }
-    ]
+    ],
+    "meta-charset-utf-8": "off",
+    "axe/text-alternatives": "off"
   }
 }
