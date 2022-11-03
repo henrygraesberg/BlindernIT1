@@ -10,6 +10,8 @@
       }
     ],
     "meta-charset-utf-8": "off",
-    "axe/text-alternatives": "off"
+    "axe/text-alternatives": "off",
+    "meta-viewport": "off",
+    "axe/forms": "off"
   }
 }
