@@ -41,10 +41,10 @@
         const pImages = [document.getElementById("black"), document.getElementById("darkgrey"), 
                          document.getElementById("lightgrey"), document.getElementById("white")];
 
-        pImages[0].addEventListener("click", ClickedOne);
-        pImages[1].addEventListener("click", ClickedTwo);
-        pImages[2].addEventListener("click", ClickedThree);
-        pImages[3].addEventListener("click", ClickedFour);
+        pImages[0].addEventListener("click", ClickedImage.bind(null, 0));
+        pImages[1].addEventListener("click", ClickedImage.bind(null, 1));
+        pImages[2].addEventListener("click", ClickedImage.bind(null, 2));
+        pImages[3].addEventListener("click", ClickedImage.bind(null, 3));
         
         const cpuImage = document.getElementById("RandomImage");
 
@@ -62,66 +62,16 @@
 
         let gameover = false;
 
-        function ClickedOne() {
-            if(!gameover && !timeoutLive) {
-                let cpuChoice = Math.floor(Math.random() * 4);
-
-                cpuImage.src = possibleImages[cpuChoice];
-
-                if(cpuChoice == 0) {
-                    MinusPoints();
-                }
-                else {
-                    PlusPoints();
-                }
-            }
+        function ClickedImage(imageClicked) {
+	    if(gameover || timeoutLive) return;
+		 
+            let cpuChoice = Math.floor(Math.random() * 4);
+	    cpuImage.src = possibleImages[cpuChoice];
+		 
+	    if(cpuChoice == imageClicked) MinusPoints();
+            else PlusPoints();
         }
-
-        function ClickedTwo() {
-            if(!gameover && !timeoutLive) {
-                let cpuChoice = Math.floor(Math.random() * 4);
-
-                cpuImage.src = possibleImages[cpuChoice];
-
-                if(cpuChoice == 1) {
-                    MinusPoints();
-                }
-                else {
-                    PlusPoints();
-                }
-            }
-        }
-
-        function ClickedThree() {
-            if(!gameover && !timeoutLive) {
-                let cpuChoice = Math.floor(Math.random() * 4);
-
-                cpuImage.src = possibleImages[cpuChoice];
-
-                if(cpuChoice == 2) {
-                    MinusPoints();
-                }
-                else {
-                    PlusPoints();
-                }
-            }
-        }
-
-        function ClickedFour() {
-            if(!gameover && !timeoutLive) {
-                let cpuChoice = Math.floor(Math.random() * 4);
-
-                cpuImage.src = possibleImages[cpuChoice];
-
-                if(cpuChoice == 3) {
-                    MinusPoints();
-                }
-                else {
-                    PlusPoints();
-                }
-            }
-        }
-
+		 
         function PlusPoints() {
             pScore++;
 
