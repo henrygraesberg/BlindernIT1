@@ -32,30 +32,48 @@ body {
 }
 
 #Jordklode {
-    position: absolute;
-    bottom: 70px;
-    left: 200px;
+    position: relative;
+    bottom: -320px;
+    left: 40px;
 }
 
-#Måne {
-    position: absolute;
-    top: 200px;
-    right: 160px;
+#Maane {
+    position: relative;
+    top: -25px;
+    left: 420px;
 }
 
 #Romferge {
-    position: absolute;
-    bottom: 220px;
-    left: 249px;
+    position: relative;
+    bottom: 40px;
+    left: 90px;
 
-    animation: Maanelanding 2s forwards;
+    animation: Maanelanding 10s infinite;
+    animation-play-state: paused;
 }
 
 @keyframes Maanelanding {
     0% {
-        bottom: 220px;
+        bottom: 40px;
+        left: 90px;
     }
-    100% {
-        bottom: 300px;
+    25% {
+        bottom: 260px;
+    }
+    35% {
+        left: 455px;
+    }
+    50% {
+        bottom: 228px;
+    }
+    55% {
+        bottom: 228px;
+        left: 455px;
+    }
+    75% {
+        bottom: 260px;
+    }
+    85% {
+        left: 90px;
     }
 }
