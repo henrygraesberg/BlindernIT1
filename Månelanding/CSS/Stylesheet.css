@@ -39,14 +39,14 @@ body {
 
 #Maane {
     position: relative;
-    top: -25px;
-    left: 420px;
+    top: 100px;
+    left: 250px;
 }
 
 #Romferge {
     position: relative;
-    bottom: 40px;
-    left: 90px;
+    bottom: -170px;
+    left: -190px;
 
     animation: Maanelanding 10s infinite;
     animation-play-state: paused;
@@ -54,26 +54,33 @@ body {
 
 @keyframes Maanelanding {
     0% {
-        bottom: 40px;
-        left: 90px;
+        transform: translate(0, 0);
     }
-    25% {
-        bottom: 260px;
+    10% {
+        transform: translate(0, -50px);
+    }
+    15% {
+        transform: translate(0, -50px) rotate(50deg);
     }
     35% {
-        left: 455px;
+        transform: translate(350px, -230px) rotate(50deg);
+    }
+    40% {
+        transform: translate(350px, -230px) rotate(0deg);
     }
     50% {
-        bottom: 228px;
+        transform: translate(350px, -190px) rotate(0deg)
     }
-    55% {
-        bottom: 228px;
-        left: 455px;
+    60% {
+        transform: translate(350px, -230px) rotate(0deg);
     }
-    75% {
-        bottom: 260px;
+    65% {
+        transform: translate(350px, -230px) rotate(-125deg)
     }
     85% {
-        left: 90px;
+        transform: translate(0, -50px) rotate(-125deg)
+    }
+    90% {
+        transform: translate(0, -50px) rotate(0deg);
     }
 }
