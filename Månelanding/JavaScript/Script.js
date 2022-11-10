@@ -16,6 +16,8 @@ function PlayAnimation() {
         clearInterval(timer);
 
         timer = null;
+        
+        animationPlaying = true;
     }
 }
 
