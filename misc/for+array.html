@@ -8,6 +8,8 @@
     </head>
     <body>
         <script>
+            let tallsamling = [1, 3, 7, 11, 13, 3, 6];
+
             function Print1to100() {
                 for(let i = 1; i <= 100; i++) {
                     console.log(i);
@@ -30,6 +32,20 @@
                 for(let i = 20; i >= 1; i--) {
                     console.log(i);
                 }
+            }
+            
+            function ModArray() {
+                tallsamling.push(777);
+                console.log(tallsamling);
+
+                tallsamling.pop();
+                console.log(tallsamling);
+
+                tallsamling.unshift(23);
+                console.log(tallsamling);
+
+                tallsamling.shift();
+                console.log(tallsamling);
             }
         </script>
     </body>
