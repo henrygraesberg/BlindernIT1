@@ -5,7 +5,7 @@ const images = {
 
 let score = 0;
 
-let time = 10;
+let time = 30;
 
 let timeup = false;
 
@@ -16,26 +16,17 @@ const scoreText = document.getElementById("Points");
 
 let gamePlaying = false;
 
-let randomNum = Math.floor(Math.random() * 9);
-imageElements[randomNum].src = images.mole;
-imageElements[randomNum].addEventListener("click", Whack);
-
 let moleInterval;
 let countdown;
+
+MoveMole();
 
 function Reset() {
     if(gamePlaying == true) return;
 
-    for(let i = 0; i < imageElements.length; i++) {
-        imageElements[i].src = images.grass;
-        imageElements[i].removeEventListener("click", Whack);
-    }
+    MoveMole();
 
-    let randomNum = Math.floor(Math.random() * 9);
-    imageElements[randomNum].src = images.mole;
-    imageElements[randomNum].addEventListener("click", Whack);
-
-    time = 10;
+    time = 30;
     timeLeftText.innerHTML = time;
 
     score = 0;
@@ -44,17 +35,18 @@ function Reset() {
 
 function Whack() {
     if(gamePlaying == false) {
-        moleInterval = window.setInterval(MoveMole, 1000);
+        moleInterval = window.setInterval(MoveMole, 700);
         gamePlaying = true;
 
         countdown = window.setInterval(Countdown, 1000);
     }
 
+    event.target.src = images.grass;
+    event.target.removeEventListener("click", Whack);
+
     score++;
 
     scoreText.innerHTML = score;
-
-    MoveMole();
 }
 
 function MoveMole() {

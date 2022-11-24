@@ -4,6 +4,10 @@ body {
 
     place-items: center;
     align-content: center;
+
+    background-color: rgb(30, 30, 45);
+
+    color: aliceblue;
 }
 
 #InfoPanel {
