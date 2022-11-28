@@ -19,7 +19,7 @@ let gamePlaying = false;
 let moleInterval;
 let countdown;
 
-MoveMole();
+
 
 function Reset() {
     if(gamePlaying == true) return;
@@ -35,10 +35,10 @@ function Reset() {
 
 function Whack() {
     if(gamePlaying == false) {
-        moleInterval = window.setInterval(MoveMole, 700);
+        moleInterval = setInterval(MoveMole, 700);
         gamePlaying = true;
 
-        countdown = window.setInterval(Countdown, 1000);
+        countdown = setInterval(Countdown, 1000);
     }
 
     event.target.src = images.grass;
@@ -68,9 +68,9 @@ function Countdown() {
     if(time <= 0) {
         timeup = false;
 
-        window.clearInterval(countdown);
+        clearInterval(countdown);
 
-        window.clearInterval(moleInterval);
+        clearInterval(moleInterval);
 
         for(let i = 0; i < imageElements.length; i++) {
             imageElements[i].src = images.grass;
@@ -82,3 +82,5 @@ function Countdown() {
 
     timeLeftText.innerHTML = time;
 }
+
+MoveMole();
