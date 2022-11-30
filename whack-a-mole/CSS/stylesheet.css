@@ -1,3 +1,7 @@
+:root {
+    --image-width: 150px; 
+}
+
 body {
     display: grid;
     height: 100vh;
@@ -27,8 +31,9 @@ body {
     border: 5px solid rgb(0, 90, 40);
 
     background-color: rgb(0, 66, 37);
-    width: 460px;
-    height: 310px;
+    max-width: calc(var(--image-width) * 4);
+    width: calc(fit-content + 10px);
+    height: calc(fit-content + 10px);
 
     justify-content: center;
     align-content: center;
