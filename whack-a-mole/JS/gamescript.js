@@ -1,7 +1,4 @@
-const images = {
-    grass: "../Images/Grass.jpg",
-    mole: "../Images/ScalopusAquaticus.jpg"
-};
+const images = { grass: "../Images/Grass.jpg", mole: "../Images/ScalopusAquaticus.jpg" };
 
 let score = 0;
 
@@ -38,7 +35,23 @@ function Whack() {
         moleInterval = setInterval(MoveMole, 700);
         gamePlaying = true;
 
-        countdown = setInterval(Countdown, 1000);
+        countdown = setInterval(() => {
+            time--;
+
+            if(time <= 0) {
+                timeup = false;
+        
+                clearInterval(countdown);
+        
+                clearInterval(moleInterval);
+        
+                ClearBoard();
+        
+                gamePlaying = false;
+            }
+        
+            timeLeftText.innerHTML = time;
+        }, 1000);
     }
 
     event.target.src = images.grass;
@@ -49,38 +62,29 @@ function Whack() {
     scoreText.innerHTML = score;
 }
 
-function MoveMole() {
+function ClearBoard() {
     for(let i = 0; i < imageElements.length; i++) {
         imageElements[i].src = images.grass;
         imageElements[i].removeEventListener("click", Whack);
     }
-
-    let randomNum = Math.floor(Math.random() * 9);
-
-    imageElements[randomNum].src = images.mole;
-
-    imageElements[randomNum].addEventListener("click", Whack);
 }
 
-function Countdown() {
-    time--;
+function MoveMole() {
+    ClearBoard();
+    
+    const double = Math.floor(Math.random() * 4);
 
-    if(time <= 0) {
-        timeup = false;
+    let moles = 1;
 
-        clearInterval(countdown);
+    if(double == 0) { moles = 2; }
 
-        clearInterval(moleInterval);
+    for(let i = 0; i < moles; i++) {
+        const randomNum = Math.floor(Math.random() * 9);
 
-        for(let i = 0; i < imageElements.length; i++) {
-            imageElements[i].src = images.grass;
-            imageElements[i].removeEventListener("click", Whack);
-        }
+        imageElements[randomNum].src = images.mole;
 
-        gamePlaying = false;
+        imageElements[randomNum].addEventListener("click", Whack);
     }
-
-    timeLeftText.innerHTML = time;
 }
 
 MoveMole();
