@@ -32,7 +32,7 @@ function Reset() {
 
 function Whack() {
     if(gamePlaying == false) {
-        moleInterval = setInterval(MoveMole, 700);
+        moleInterval = setTimeout(MoveMole, 700);
         gamePlaying = true;
 
         countdown = setInterval(() => {
@@ -43,7 +43,7 @@ function Whack() {
         
                 clearInterval(countdown);
         
-                clearInterval(moleInterval);
+                clearTimeout(moleInterval);
         
                 ClearBoard();
         
@@ -72,11 +72,11 @@ function ClearBoard() {
 function MoveMole() {
     ClearBoard();
     
-    const double = Math.floor(Math.random() * 4);
+    const multiple = Math.floor(Math.random() * 8);
 
     let moles = 1;
 
-    if(double == 0) { moles = 2; }
+    if(multiple >= 6) { moles = multiple - 4; }
 
     for(let i = 0; i < moles; i++) {
         const randomNum = Math.floor(Math.random() * 9);
@@ -84,6 +84,12 @@ function MoveMole() {
         imageElements[randomNum].src = images.mole;
 
         imageElements[randomNum].addEventListener("click", Whack);
+    }
+
+    if(gamePlaying) {
+        const randomTime = Math.floor(Math.random() * 300) + 700;
+
+        moleInterval = setTimeout(MoveMole, randomTime);
     }
 }
 
