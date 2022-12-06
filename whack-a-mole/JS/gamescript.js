@@ -76,7 +76,7 @@ function MoveMole() {
 
     let moles = 1;
 
-    if(multiple >= 6) { moles = multiple - 4; }
+    if(multiple >= 6) { moles = multiple - 4; };
 
     for(let i = 0; i < moles; i++) {
         const randomNum = Math.floor(Math.random() * imageElements.length);
