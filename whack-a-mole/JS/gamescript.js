@@ -19,6 +19,7 @@ let countdown;
 
 
 function Reset() {
+    //if(argument) return; makes the rest of the function be ignored if the argument within the if-statement is true
     if(gamePlaying == true) return;
 
     MoveMole();
@@ -32,6 +33,7 @@ function Reset() {
 
 function Whack() {
     if(gamePlaying == false) {
+        //setTimeout takes a function and a number as arguments. The number is the time in milliseconds untill the function executes
         moleInterval = setTimeout(MoveMole, 700);
         gamePlaying = true;
 
@@ -54,6 +56,8 @@ function Whack() {
         }, 1000);
     }
 
+    //event.target is the object that has the event listener which called the function
+    //in this case, that would be the mole image that was clicked
     event.target.src = images.grass;
     event.target.removeEventListener("click", Whack);
 

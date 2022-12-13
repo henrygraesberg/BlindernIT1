@@ -1,9 +1,11 @@
+/*arguments starting with -- within :root are variables that can be used anywhere in the CSS code by using the var(variableName) at any time*/
 :root {
     --image-width: 150px;
     --layout-width: 4;
 }
 
 body {
+    /*The following four lines center the content of the page both vertically and horizontally*/
     display: grid;
     height: 100vh;
 
@@ -32,6 +34,8 @@ body {
     border: 5px solid rgb(0, 90, 40);
 
     background-color: rgb(0, 66, 37);
+    /*var(variableName) takes the value of the variable defined in :root*/
+    /*calc() allows you to do calculations, such as multiplying or adding different values, within CSS*/
     max-width: calc(var(--image-width) * var(--layout-width));
     width: calc(fit-content + 10px);
     height: calc(fit-content + 10px);
