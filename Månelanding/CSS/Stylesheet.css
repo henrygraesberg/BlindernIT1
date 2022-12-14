@@ -1,24 +1,29 @@
 body {
+    /*Together, the next 5 lines center the content both vertically and horizontally*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+
     background-color: orange;
 }
 
 #Buttons {
+    /*Makes the children of the div with this ID organize themselves horizontally, rather than vertically*/
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 600px;
 }
 
+/*#Buttons > button chooses all children of the type "button"*/
 #Buttons > button {
     margin: 5px;
     width: 250px;
 }
 
+/*button:hover changes the button elements when they are hovered (See w3schools tutorial on CSS pseudo-classes)*/
 #Buttons > button:hover {
     background-color: rgb(44, 44, 44);
     color: aliceblue;
