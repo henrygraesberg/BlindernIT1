@@ -6,7 +6,7 @@ const addButton = document.getElementById("AddName");
 
 const pickButton = document.getElementById("PickName");
 
-let nameArray = []
+let nameArray = [];
 
 let nameChosen = false;
 
