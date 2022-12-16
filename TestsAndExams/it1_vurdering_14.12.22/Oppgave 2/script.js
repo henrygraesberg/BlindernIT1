@@ -1,8 +1,10 @@
+const form = document.querySelector("form");
+
 const inputField = document.querySelector("input");
 
 const nameText = document.getElementById("Name");
 
-const addButton = document.getElementById("AddName");
+const resetButton = document.getElementById("Reset");
 
 const pickButton = document.getElementById("PickName");
 
@@ -10,7 +12,9 @@ let nameArray = [];
 
 let nameChosen = false;
 
-addButton.onclick = () => {
+form.onsubmit = () => {
+    event.preventDefault();
+
     if(nameArray.length >= 6 || nameChosen) return;
 
     const name = inputField.value;
@@ -24,6 +28,14 @@ addButton.onclick = () => {
     }
 
     nameText.innerHTML = text;
+}
+
+resetButton.onclick = () => {
+    nameChosen = false;
+    nameArray = [];
+
+    nameText.innerHTML = nameArray;
+    document.getElementById("Tillitselev").innerHTML = "";
 }
 
 pickButton.onclick = () => {
