@@ -16,7 +16,7 @@ function CheckLetter(array, wantedLetter) {
         return "not found";
     }
 }
-c.log(`index of "${"l"}" is ${CheckLetter(ord, "l")}`);
+c.log(`index of "l" is ${CheckLetter(ord, "l")}`);
 c.log(`index of "e" is ${CheckLetter(ord, "e")}`);
 c.log(`index of "m" is ${CheckLetter(ord, "m")}`);
 c.log(`index of "ø" is ${CheckLetter(ord, "ø")}`);
