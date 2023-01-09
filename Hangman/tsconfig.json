@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "watch": true,
+        "target": "esnext",
+    },
+    "include": ["./Scripts"]
+}
