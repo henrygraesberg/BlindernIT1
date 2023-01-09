@@ -1,0 +1,24 @@
+body {
+    display: grid;
+
+    place-content: center;
+
+    height: 100vh;
+}
+
+#LargeBox {
+    background-color: red;
+    width: 410px;
+    height: 410px;
+}
+
+#SmallBox {
+    background-color: yellow;
+    width: 50px;
+    height: 50px;
+
+    position: relative;
+
+    left: 180px;
+    top: 180px;
+}
