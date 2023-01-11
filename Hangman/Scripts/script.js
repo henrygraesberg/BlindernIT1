@@ -1,4 +1,6 @@
-const ord = Array.from("hemmelig");
+const words = ["hemmelig", "blindern", "oslo", "informasjonsteknologi"];
+let ord = [];
+let hiddenWord = [];
 const hidden = [];
 let usedWords = [];
 const inputField = document.querySelector("input");
@@ -7,6 +9,16 @@ const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
 let livesLeft = 5;
+function NewWord(wordArray) {
+    const randint = Math.floor(Math.random() * wordArray.length);
+    ord = Array.from(wordArray[randint]);
+    livesLeft = 5;
+    usedWords = [];
+    inputField.value = "";
+    usedWordsEl.innerHTML = "";
+    hiddenWord = CreateHidden(ord);
+    wordEl.innerHTML = hiddenWord.toString();
+}
 function CheckLetter(array, wantedLetter) {
     let positions = [];
     for (let i = 0; i < array.length; i++) {
@@ -27,16 +39,13 @@ function CreateHidden(word) {
     }
     return hiddenArray;
 }
-function CheckLives(livesLeft) {
-    if (livesLeft <= 0) {
-        return false;
-    }
-    return true;
-}
 button.onclick = () => {
     const letter = inputField.value.toLowerCase();
-    if (CheckLives(livesLeft) == false)
+    if (livesLeft <= 0) {
+        outputEl.innerHTML = "Du har tapt";
+        wordEl.innerHTML = ord.toString();
         return;
+    }
     if (letter == "")
         return;
     if (CheckLetter(usedWords, letter) != "not found") {
@@ -60,5 +69,4 @@ button.onclick = () => {
     usedWordsEl.innerHTML = usedWords.toString();
     inputField.value = "";
 };
-const hiddenWord = CreateHidden(ord);
-wordEl.innerHTML = hiddenWord.toString();
+NewWord(words);
