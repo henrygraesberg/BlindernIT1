@@ -4,7 +4,7 @@ const hidden: string[] = []
 const inputField = document.querySelector("input");
 const button = document.querySelector("button");
 
-const wordEl = document.getElementById("word");
+const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 
 function CheckLetter(array: string[], wantedLetter: string): string | number[] {

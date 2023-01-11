@@ -2,7 +2,7 @@ const ord = ["h", "e", "m", "m", "e", "l", "i", "g"];
 const hidden = [];
 const inputField = document.querySelector("input");
 const button = document.querySelector("button");
-const wordEl = document.getElementById("word");
+const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 function CheckLetter(array, wantedLetter) {
     let positions = [];
