@@ -9,7 +9,7 @@ const hidden: string[] = []
 let usedWords: string[] = []; 
 
 const inputField = document.querySelector("input");
-const button = document.querySelector("button");
+const button = document.getElementById("Guess");
 
 const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
