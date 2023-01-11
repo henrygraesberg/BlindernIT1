@@ -1,11 +1,14 @@
 const ord = ["h", "e", "m", "m", "e", "l", "i", "g"]
 const hidden: string[] = []
 
+let usedWords: string[] = []; 
+
 const inputField = document.querySelector("input");
 const button = document.querySelector("button");
 
 const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
+const usedWordsEl = document.getElementById("Used");
 
 function CheckLetter(array: string[], wantedLetter: string): string | number[] {
     let positions: number[] = [];
@@ -35,6 +38,8 @@ function CreateHidden(word: string[]) {
 button.onclick = () => {
     const letter = inputField.value.toLowerCase();
 
+    if(CheckLetter(usedWords, letter) != "not found") return;
+
     const exists = CheckLetter(ord, letter);
 
     if(exists == "not found") {
@@ -50,16 +55,11 @@ button.onclick = () => {
         }
     }
 
+    usedWords = [...usedWords, letter];
+
     inputField.value = "";
 }
 
 const hiddenWord = CreateHidden(ord); 
 
 wordEl.innerHTML = hiddenWord.toString();
-
-console.log(`index of "l" is ${CheckLetter(ord, "l")}`);
-console.log(`index of "e" is ${CheckLetter(ord, "e")}`);
-console.log(`index of "m" is ${CheckLetter(ord, "m")}`);
-console.log(`index of "ø" is ${CheckLetter(ord, "ø")}`);
-
-console.log(`\nhidden word is ${CreateHidden(ord)}`);
