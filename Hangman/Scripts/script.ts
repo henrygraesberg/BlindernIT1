@@ -13,7 +13,6 @@ function CheckLetter(array: string[], wantedLetter: string): string | string[] {
     
     if(positions.length != 0) {
         return new Intl.ListFormat("en-us").format(positions);
-        return new Intl.ListFormat("en-us").format(positions);
     }
     return "not found";
 }
