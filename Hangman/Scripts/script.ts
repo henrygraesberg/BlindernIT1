@@ -2,7 +2,7 @@ const c = console;
 
 const ord = ["l", "h", "e", "m", "m", "e", "l", "i", "g", "m", "m", "m", "l"]
 
-function CheckLetter(array: string[], wantedLetter: string) {
+function CheckLetter(array: string[], wantedLetter: string): string | string[] {
     let positions: string[] = [];
     
     for(let letter in array) {
@@ -12,13 +12,9 @@ function CheckLetter(array: string[], wantedLetter: string) {
     }
     
     if(positions.length != 0) {
-        const f = new Intl.ListFormat("en-us");
-
-        return f.format(positions);
+        return new Intl.ListFormat("en-us").format(positions);
     }
-    else {
-        return "not found";
-    }
+    return "not found";
 }
 
 c.log(`index of "l" is ${CheckLetter(ord, "l")}`);
