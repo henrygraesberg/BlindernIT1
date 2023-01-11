@@ -3,7 +3,8 @@
         "watch": true,
         "target": "esnext",
         "allowUnreachableCode": false,
-        "allowUnusedLabels": false
+        "allowUnusedLabels": false,
+        "lib": ["dom", "ES2021"]
     },
     "include": ["./Scripts"]
 }
