@@ -19,6 +19,8 @@ let livesLeft = 5;
 
 function NewWord(wordArray: string[]) {
     const randint = Math.floor(Math.random() * wordArray.length);
+    
+    if(Array.from(wordArray[randint]) == ord) NewWord(words);
 
     ord = Array.from(wordArray[randint]);
 

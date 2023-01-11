@@ -11,6 +11,8 @@ const usedWordsEl = document.getElementById("Used");
 let livesLeft = 5;
 function NewWord(wordArray) {
     const randint = Math.floor(Math.random() * wordArray.length);
+    if (Array.from(wordArray[randint]) == ord)
+        NewWord(words);
     ord = Array.from(wordArray[randint]);
     livesLeft = 5;
     usedWords = [];
