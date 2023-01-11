@@ -10,6 +10,8 @@ const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
 
+let livesLeft = 5;
+
 function CheckLetter(array: string[], wantedLetter: string): string | number[] {
     let positions: number[] = [];
     
@@ -35,8 +37,17 @@ function CreateHidden(word: string[]) {
     return hiddenArray;
 }
 
+function CheckLives(livesLeft: number) {
+    if(livesLeft <= 0) {
+        return false;
+    }
+    return true;
+}
+
 button.onclick = () => {
     const letter = inputField.value.toLowerCase();
+
+    if(CheckLives(livesLeft) == false) return;
 
     if(letter == "") return;
 
@@ -51,7 +62,9 @@ button.onclick = () => {
     const exists = CheckLetter(ord, letter);
 
     if(exists == "not found") {
-        outputEl.innerHTML = "Bokstaven er ikke i ordet"
+        outputEl.innerHTML = "Bokstaven er ikke i ordet";
+
+        livesLeft--;
     }
     else {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`
