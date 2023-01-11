@@ -38,7 +38,13 @@ function CreateHidden(word: string[]) {
 button.onclick = () => {
     const letter = inputField.value.toLowerCase();
 
-    if(CheckLetter(usedWords, letter) != "not found") return;
+    if(CheckLetter(usedWords, letter) != "not found") {
+        inputField.value = "";
+
+
+
+        return;
+    }
 
     const exists = CheckLetter(ord, letter);
 
@@ -56,6 +62,8 @@ button.onclick = () => {
     }
 
     usedWords = [...usedWords, letter];
+
+    usedWordsEl.innerHTML = usedWords.toString();
 
     inputField.value = "";
 }

@@ -28,8 +28,10 @@ function CreateHidden(word) {
 }
 button.onclick = () => {
     const letter = inputField.value.toLowerCase();
-    if (CheckLetter(usedWords, letter) != "not found")
+    if (CheckLetter(usedWords, letter) != "not found") {
+        inputField.value = "";
         return;
+    }
     const exists = CheckLetter(ord, letter);
     if (exists == "not found") {
         outputEl.innerHTML = "Bokstaven er ikke i ordet";
@@ -42,6 +44,7 @@ button.onclick = () => {
         }
     }
     usedWords = [...usedWords, letter];
+    usedWordsEl.innerHTML = usedWords.toString();
     inputField.value = "";
 };
 const hiddenWord = CreateHidden(ord);
