@@ -33,10 +33,11 @@ button.onclick = () => {
     else {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`;
         for (let i = 0; i < exists.length; i++) {
-            hiddenWord[i] = letter;
+            hiddenWord[exists[i]] = letter;
             wordEl.innerHTML = hiddenWord.toString();
         }
     }
+    inputField.value = "";
 };
 const hiddenWord = CreateHidden(ord);
 wordEl.innerHTML = hiddenWord.toString();
