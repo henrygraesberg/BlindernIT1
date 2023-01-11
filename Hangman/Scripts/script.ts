@@ -38,10 +38,12 @@ function CreateHidden(word: string[]) {
 button.onclick = () => {
     const letter = inputField.value.toLowerCase();
 
-    if(CheckLetter(usedWords, letter) != "not found" || letter == "") {
+    if(letter == "") return;
+
+    if(CheckLetter(usedWords, letter) != "not found") {
         inputField.value = "";
 
-        outputEl.innerHTML = "Du har allerede gjettet dette ordet";
+        outputEl.innerHTML = "Du har allerede gjettet denne bokstaven";
 
         return;
     }
