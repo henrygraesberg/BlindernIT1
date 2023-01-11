@@ -40,7 +40,7 @@ button.onclick = () => {
         outputEl.innerHTML = "Bokstaven er ikke i ordet"
     }
     else {
-        outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${"sted" ? exists.length == 1 : "steder"}`
+        outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`
     }
 }
 

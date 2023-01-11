@@ -30,7 +30,7 @@ button.onclick = () => {
         outputEl.innerHTML = "Bokstaven er ikke i ordet";
     }
     else {
-        outputEl.innerHTML = `bokstaven er i ordet på $`;
+        outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`;
     }
 };
 console.log(`index of "l" is ${CheckLetter(ord, "l")}`);
