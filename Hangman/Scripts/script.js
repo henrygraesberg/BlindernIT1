@@ -1,4 +1,4 @@
-const ord = ["h", "e", "m", "m", "e", "l", "i", "g"];
+const ord = Array.from("hemmelig");
 const hidden = [];
 let usedWords = [];
 const inputField = document.querySelector("input");
@@ -51,8 +51,8 @@ button.onclick = () => {
     }
     else {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`;
-        for (let i = 0; i < exists.length; i++) {
-            hiddenWord[exists[i]] = letter;
+        for (let i of exists) {
+            hiddenWord[i] = letter;
             wordEl.innerHTML = hiddenWord.toString();
         }
     }
