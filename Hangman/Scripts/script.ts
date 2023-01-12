@@ -1,3 +1,5 @@
+//read script.js file, as some differences are found in a .ts file, such as static types and static return values
+
 const words: string[] = ["hemmelig", "blindern", "oslo", "informasjonsteknologi"]
 
 let ord: string[] = [];
@@ -22,7 +24,7 @@ function NewWord(wordArray: string[]) {
     
     if(Array.from(wordArray[randint]) == ord) NewWord(words);
 
-    ord = Array.from(wordArray[randint]);
+    ord = Array.from(wordArray[randint]); //Array.from() creates an array from a string with one letter per index
 
     livesLeft = 5;
 
@@ -41,7 +43,15 @@ function CheckLetter(array: string[], wantedLetter: string): string | number[] {
     
     for(let i = 0; i < array.length; i++) {
         if(array[i] == wantedLetter) {
-            positions = [...positions, i];
+            positions = [...positions, i]; /*
+            The spread operator (...$varname) expands the array
+            example:
+            a variable named numArray has the values [1, 2, 3, 4]
+            if I want to add 5 to the array I could write:
+            numArray = [...numArray, 5]
+            which would be the same as writing
+            numArray = [1, 2, 3, 4, 5]
+            */
         };
     }
     
@@ -55,14 +65,14 @@ function CreateHidden(word: string[]) {
     let hiddenArray: string[] = []
 
     for(let i in word) {
-        hiddenArray = [...hiddenArray, "_"];
+        hiddenArray = [...hiddenArray, "_"]; 
     }
 
     return hiddenArray;
 }
 
 button.onclick = () => {
-    const letter = inputField.value.toLowerCase();
+    const letter = inputField.value.toLowerCase(); //.toLowerCase() converts a string to all lowercase, even if the input is uppercase
 
     if(livesLeft <= 0) {
         outputEl.innerHTML = "Du har tapt";
@@ -90,12 +100,16 @@ button.onclick = () => {
         livesLeft--;
     }
     else {
-        outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`
+        outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}` /*
+        inline if evaluates the first expression (in this case exists.length  == 1)
+        if it is true, it returns the first value after the ?
+        if it is false, it returns the value after :
+        */
 
         for(let i of exists) {
             hiddenWord[i] = letter;
 
-            wordEl.innerHTML = hiddenWord.toString();
+            wordEl.innerHTML = hiddenWord.toString(); //.toString() converts an array to a string
         }
     }
 
