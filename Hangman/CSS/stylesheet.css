@@ -1,5 +1,27 @@
+:root {
+    --color-palette-purple: 82, 72, 156;
+    --color-palette-aqua: 89, 195, 195;
+    --color-palette-ruby: 216, 30, 91;
+}
+
 main {
     display: grid;
 
     place-content: center;
+}
+
+button {
+    background-color: rgb(var(--color-palette-purple));
+    color: rgb(var(--color-palette-aqua));
+    border-color: transparent;
+
+    transition: background-color 300ms ease-in, scale 150ms ease-in-out;
+}
+
+button:hover {
+    background-color: rgb(var(--color-palette-ruby));
+}
+
+button:active {
+    scale: 95%;
 }
