@@ -1,4 +1,5 @@
 :root {
+    --color-palette-darkpurple: 90, 80, 161;
     --color-palette-purple: 82, 72, 156;
     --color-palette-aqua: 89, 195, 195;
     --color-palette-ruby: 216, 30, 91;
@@ -11,8 +12,7 @@ main {
 }
 
 button {
-    background-color: rgb(var(--color-palette-purple));
-    color: rgb(var(--color-palette-aqua));
+    background-color: rgb(var(--color-palette-darkpurple));
     border-color: transparent;
 
     transition: background-color 300ms ease-in, scale 150ms ease-in-out;
@@ -24,4 +24,44 @@ button:hover {
 
 button:active {
     scale: 95%;
+}
+
+#Content {
+    padding: 2rem 5rem;
+
+    color: rgb(var(--color-palette-aqua));
+
+    background: linear-gradient(
+        to right,
+        rgb(var(--color-palette-purple)),
+        rgb(112, 80, 166),
+        rgb(190, 101, 190),
+        rgb(var(--color-palette-purple))
+    );
+
+    background-size: 200%;
+
+    animation: BackgroundScrollAnim 3s linear infinite;
+}
+
+input {
+    background-color: transparent;
+
+    border-width: 5px;
+    border-color: linear-gradient(
+        to left
+    );
+}
+
+input:focus {
+    outline: none;
+}
+
+@keyframes BackgroundScrollAnim {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: -200% center;
+    }
 }
