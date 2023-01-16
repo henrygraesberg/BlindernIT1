@@ -53,11 +53,6 @@ function CreateHidden(word) {
 }
 button.onclick = () => {
     const letter = inputField.value.toLowerCase(); //.toLowerCase() converts a string to all lowercase, even if the input is uppercase
-    if (livesLeft <= 0) {
-        outputEl.innerHTML = "Du har tapt";
-        wordEl.innerHTML = ord.toString();
-        return;
-    }
     if (letter == "")
         return;
     if (CheckLetter(usedWords, letter) != "not found") {
@@ -85,5 +80,10 @@ button.onclick = () => {
     usedWords = [...usedWords, letter];
     usedWordsEl.innerHTML = usedWords.toString();
     inputField.value = "";
+    if (livesLeft <= 0) {
+        outputEl.innerHTML = "Du har tapt";
+        wordEl.innerHTML = ord.toString();
+        return;
+    }
 };
 NewWord(words);
