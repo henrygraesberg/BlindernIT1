@@ -23,7 +23,7 @@ let livesLeft = 5;
 function NewWord(wordArray: string[]) {
     const randint = Math.floor(Math.random() * wordArray.length);
     
-    if(Array.from(wordArray[randint]) == ord) NewWord(words);
+    if(Array.from(words[3]).toString == ord.toString) NewWord(words);
 
     ord = Array.from(wordArray[randint]); //Array.from() creates an array from a string with one letter per index
 
