@@ -73,9 +73,9 @@ function CreateHidden(word: string[]) {
 }
 
 button.onclick = () => {
-    const letter = inputField.value.toLowerCase(); //.toLowerCase() converts a string to all lowercase, even if the input is uppercase
+    const letter = inputField?.value.toLowerCase(); //.toLowerCase() converts a string to all lowercase, even if the input is uppercase
 
-    if(letter == "") return;
+    if(letter == "" || letter == " ") return;
 
     if(CheckLetter(usedWords, letter) != "not found") {
         inputField.value = "";
