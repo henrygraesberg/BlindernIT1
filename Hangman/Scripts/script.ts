@@ -22,10 +22,6 @@ let livesLeft = 5;
 
 function NewWord(wordArray: string[]) {
     const randint = Math.floor(Math.random() * wordArray.length);
-    
-    if(Array.from(words[randint]).toString == ord.toString) {
-        return NewWord(words);
-    }
 
     ord = Array.from(wordArray[randint]); //Array.from() creates an array from a string with one letter per index
 
@@ -41,6 +37,10 @@ function NewWord(wordArray: string[]) {
     hiddenWord = CreateHidden(ord);
 
     wordEl.innerHTML = hiddenWord.toString();
+
+    if(Array.from(words[randint]).toString == ord.toString) {
+        NewWord(words);
+    }
 }
 
 function CheckLetter(array: string[], wantedLetter: string): string | number[] {
