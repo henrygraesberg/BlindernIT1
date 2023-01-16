@@ -18,6 +18,7 @@ function NewWord(wordArray) {
     ord = Array.from(wordArray[randint]); //Array.from() creates an array from a string with one letter per index
     livesLeft = 5;
     usedWords = [];
+    livesEl.innerHTML = livesLeft.toString();
     inputField.value = "";
     usedWordsEl.innerHTML = "";
     hiddenWord = CreateHidden(ord);

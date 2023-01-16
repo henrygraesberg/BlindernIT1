@@ -31,6 +31,8 @@ function NewWord(wordArray: string[]) {
 
     usedWords = [];
 
+    livesEl.innerHTML = livesLeft.toString();
+
     inputField.value = "";
     usedWordsEl.innerHTML = "";
 
