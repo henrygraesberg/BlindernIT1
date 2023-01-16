@@ -27,7 +27,7 @@ button:active {
 }
 
 #Content {
-    padding: 2rem 5rem;
+    padding: .5rem 5rem;
 
     color: rgb(var(--color-palette-aqua));
 
