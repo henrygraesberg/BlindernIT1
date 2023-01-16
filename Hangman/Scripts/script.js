@@ -21,7 +21,7 @@ function NewWord(wordArray) {
     usedWordsEl.innerHTML = "";
     hiddenWord = CreateHidden(ord);
     wordEl.innerHTML = hiddenWord.toString();
-    if (Array.from(words[randint]).toString == ord.toString) {
+    if (Array.from(words[randint]) == ord) {
         NewWord(words);
     }
 }

@@ -38,7 +38,7 @@ function NewWord(wordArray: string[]) {
 
     wordEl.innerHTML = hiddenWord.toString();
 
-    if(Array.from(words[randint]).toString == ord.toString) {
+    if(Array.from(words[randint]) == ord) {
         NewWord(words);
     }
 }
