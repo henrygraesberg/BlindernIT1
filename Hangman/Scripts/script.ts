@@ -94,7 +94,7 @@ button.onclick = () => {
 
     const exists = CheckLetter(ord, letter);
 
-    if(exists == "not found") {
+    if(typeof exists == "string") {
         outputEl.innerHTML = "Bokstaven er ikke i ordet";
 
         livesLeft--;
