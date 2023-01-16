@@ -9,6 +9,7 @@ const button = document.getElementById("Guess");
 const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
+const livesEl = document.getElementById("Lives");
 let livesLeft = 5;
 function NewWord(wordArray) {
     const randint = Math.floor(Math.random() * wordArray.length);
@@ -65,9 +66,10 @@ button.onclick = () => {
         return;
     }
     const exists = CheckLetter(ord, letter);
-    if (exists == "not found") {
+    if (typeof exists == "string") {
         outputEl.innerHTML = "Bokstaven er ikke i ordet";
         livesLeft--;
+        livesEl.innerHTML = livesLeft.toString();
     }
     else {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`; /*
