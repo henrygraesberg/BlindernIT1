@@ -13,8 +13,10 @@ const livesEl = document.getElementById("Lives");
 let livesLeft = 5;
 function NewWord(wordArray) {
     const randint = Math.floor(Math.random() * wordArray.length);
-    if (Array.from(words[randint]).toString == ord.toString)
+    if (Array.from(words[randint]).toString == ord.toString) {
         NewWord(words);
+        return;
+    }
     ord = Array.from(wordArray[randint]); //Array.from() creates an array from a string with one letter per index
     livesLeft = 5;
     usedWords = [];
