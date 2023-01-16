@@ -16,6 +16,7 @@ const button = document.getElementById("Guess");
 const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
+const livesEl = document.getElementById("Lives");
 
 let livesLeft = 5;
 
@@ -98,6 +99,8 @@ button.onclick = () => {
         outputEl.innerHTML = "Bokstaven er ikke i ordet";
 
         livesLeft--;
+
+        livesEl.innerHTML = livesLeft.toString();
     }
     else {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}` /*
