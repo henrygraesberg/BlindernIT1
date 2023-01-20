@@ -37,14 +37,11 @@ button:active {
     color: rgb(var(--color-palette-aqua));
 
     background: linear-gradient(
-        to right,
+        150deg,
         rgb(var(--color-palette-purple)),
         rgb(112, 80, 166),
-        rgb(190, 101, 190),
-        rgb(var(--color-palette-purple))
+        rgb(190, 101, 190)
     );
-
-    background-size: 200%;
 
     animation: BackgroundScrollAnim 3s linear infinite;
 }
@@ -60,13 +57,4 @@ input {
 
 input:focus {
     outline: none;
-}
-
-@keyframes BackgroundScrollAnim {
-    from {
-        background-position: 0% center;
-    }
-    to {
-        background-position: -200% center;
-    }
 }
