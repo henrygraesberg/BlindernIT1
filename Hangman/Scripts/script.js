@@ -11,18 +11,26 @@ const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
 const livesEl = document.getElementById("Lives");
 let livesLeft = 5;
+function StringifyArray(wordArray) {
+}
 function NewWord(wordArray) {
+    console.log("NewWord()");
     const randint = Math.floor(Math.random() * wordArray.length);
-    if (Array.from(wordArray[randint]) == ord)
-        NewWord(words);
-    ord = Array.from(wordArray[randint]); //Array.from() creates an array from a string with one letter per index
-    livesLeft = 5;
-    usedWords = [];
-    livesEl.innerHTML = livesLeft.toString();
-    inputField.value = "";
-    usedWordsEl.innerHTML = "";
-    hiddenWord = CreateHidden(ord);
-    wordEl.innerHTML = hiddenWord.toString();
+    const possibleWord = Array.from(wordArray[randint]); //Array.from() creates an array from a string with one letter per index
+    console.log(possibleWord);
+    if (ord.every((element, index) => element !== possibleWord[index])) {
+        ord = possibleWord;
+        livesLeft = 5;
+        usedWords = [];
+        livesEl.innerHTML = livesLeft.toString();
+        outputEl.innerHTML = "";
+        inputField.value = "";
+        usedWordsEl.innerHTML = "";
+        hiddenWord = CreateHidden(ord);
+        wordEl.innerHTML = hiddenWord.join("");
+        return;
+    }
+    NewWord(words);
 }
 function CheckLetter(array, wantedLetter) {
     let positions = [];
@@ -36,9 +44,10 @@ function CheckLetter(array, wantedLetter) {
             numArray = [...numArray, 5]
             which would be the same as writing
             numArray = [1, 2, 3, 4, 5]
+            or
+            numArray.push(5);
             */
         }
-        ;
     }
     if (positions.length != 0) {
         return positions;
@@ -75,11 +84,11 @@ button.onclick = () => {
         */
         for (let i of exists) {
             hiddenWord[i] = letter;
-            wordEl.innerHTML = hiddenWord.toString(); //.toString() converts an array to a string
+            wordEl.innerHTML = hiddenWord.join(""); //.toString() converts an array to a string
         }
     }
     usedWords = [...usedWords, letter];
-    usedWordsEl.innerHTML = usedWords.toString();
+    usedWordsEl.innerHTML = usedWords.join(", ");
     inputField.value = "";
     if (livesLeft <= 0) {
         outputEl.innerHTML = "Du har tapt";
