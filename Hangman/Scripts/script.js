@@ -1,5 +1,5 @@
 //read script.js file, as some differences are found in a .ts file, such as static types and static return values
-const words = ["hemmelig", "blindern", "oslo", "informasjonsteknologi"];
+const words = ["hemmelig", "blindern", "oslo", "informasjonsteknologi", "penis"];
 const hangmanDrawStrokes = [];
 let ord = [];
 let hiddenWord = [];
@@ -80,7 +80,7 @@ button.onclick = () => {
     }
     else {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`; /*
-        inline if evaluates the first expression (in this case exists.length  == 1)
+        inline if evaluates the first expression (in this case exists.length == 1)
         if it is true, it returns the first value after the ?
         if it is false, it returns the value after :
         */
