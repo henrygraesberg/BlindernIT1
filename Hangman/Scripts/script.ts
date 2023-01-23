@@ -2,6 +2,8 @@
 
 const words: string[] = ["hemmelig", "blindern", "oslo", "informasjonsteknologi"]
 
+const hangmanDrawStrokes = []
+
 let ord: string[] = [];
 
 let hiddenWord: string[] = [];
@@ -17,6 +19,7 @@ const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
 const livesEl = document.getElementById("Lives");
+const svgEl = document.getElementById("Hangman-draw")
 
 let livesLeft = 5;
 

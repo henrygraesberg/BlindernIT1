@@ -3,6 +3,8 @@
     --color-palette-purple: 82, 72, 156;
     --color-palette-aqua: 89, 195, 195;
     --color-palette-ruby: 216, 30, 91;
+
+    --hangman-stroke-color: #333
 }
 
 body {
