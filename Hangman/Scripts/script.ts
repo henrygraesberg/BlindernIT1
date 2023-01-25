@@ -2,8 +2,6 @@
 
 const words: string[] = ["hemmelig", "blindern", "oslo", "informasjonsteknologi", "penis"]
 
-const hangmanDrawStrokes = []
-
 let ord: string[] = [];
 
 let hiddenWord: string[] = [];
@@ -19,13 +17,8 @@ const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
 const livesEl = document.getElementById("Lives");
-const svgEl = document.getElementById("Hangman-draw")
 
 let livesLeft = 5;
-
-function StringifyArray(wordArray: any[]) {
-
-}
 
 function NewWord(wordArray: string[]) {
     console.log("NewWord()");
@@ -83,7 +76,7 @@ function CheckLetter(array: string[], wantedLetter: string): string | number[] {
 }
 
 function CreateHidden(word: string[]) {
-    let hiddenArray: string[] = []
+    let hiddenArray: string[] = [];
 
     for(let i in word) {
         hiddenArray = [...hiddenArray, "_"]; 

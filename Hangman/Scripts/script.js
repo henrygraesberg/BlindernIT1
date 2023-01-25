@@ -1,6 +1,5 @@
 //read script.js file, as some differences are found in a .ts file, such as static types and static return values
 const words = ["hemmelig", "blindern", "oslo", "informasjonsteknologi", "penis"];
-const hangmanDrawStrokes = [];
 let ord = [];
 let hiddenWord = [];
 const hidden = [];
@@ -11,10 +10,7 @@ const wordEl = document.getElementById("Word");
 const outputEl = document.getElementById("Output");
 const usedWordsEl = document.getElementById("Used");
 const livesEl = document.getElementById("Lives");
-const svgEl = document.getElementById("Hangman-draw");
 let livesLeft = 5;
-function StringifyArray(wordArray) {
-}
 function NewWord(wordArray) {
     console.log("NewWord()");
     const randint = Math.floor(Math.random() * wordArray.length);
