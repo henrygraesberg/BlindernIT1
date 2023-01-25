@@ -1,8 +1,8 @@
 :root {
-    --color-palette-darkpurple: 90, 80, 161;
-    --color-palette-purple: 82, 72, 156;
-    --color-palette-aqua: 89, 195, 195;
-    --color-palette-ruby: 216, 30, 91;
+    --color-palette-darkpurple: 247, 40%, 35%;
+    --color-palette-purple: 247, 37%, 45%;
+    --color-palette-aqua: 180, 47%, 56%;
+    --color-palette-ruby: 340, 76%, 48%;
 }
 
 body {
@@ -16,7 +16,7 @@ main {
 }
 
 button {
-    background-color: rgb(var(--color-palette-darkpurple));
+    background-color: hsl(var(--color-palette-darkpurple));
     border-color: transparent;
     color: inherit;
 
@@ -24,11 +24,12 @@ button {
 }
 
 button:hover {
-    background-color: rgb(var(--color-palette-ruby));
+    background-color: hsl(var(--color-palette-ruby));
+    scale: 105%;
 }
 
 button:active {
-    scale: 95%;
+    scale: 100%;
 }
 
 #Content {
@@ -37,13 +38,13 @@ button:active {
 
     padding: 1rem 5rem;
 
-    color: rgb(var(--color-palette-aqua));
+    color: hsl(var(--color-palette-aqua));
 
     background: linear-gradient(
         150deg,
-        rgb(var(--color-palette-purple)),
-        rgb(112, 80, 166),
-        rgb(190, 101, 190)
+        hsl(var(--color-palette-purple)),
+        hsl(262, 35%, 48%),
+        hsl(300, 41%, 57%)
     );
 
     animation: BackgroundScrollAnim 3s linear infinite;
