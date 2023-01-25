@@ -109,7 +109,7 @@ button.onclick = () => {
     }
     else {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}` /*
-        inline if evaluates the first expression (in this case exists.length == 1)
+        the turnary operator evaluates the first expression (in this case exists.length == 1)
         if it is true, it returns the first value after the ?
         if it is false, it returns the value after :
         */
