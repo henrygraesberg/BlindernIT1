@@ -29,7 +29,7 @@ function NewWord(wordArray) {
         inputField.value = "";
         usedWordsEl.innerHTML = "";
         hiddenWord = CreateHidden(ord);
-        wordEl.innerHTML = hiddenWord.join("");
+        wordEl.innerHTML = hiddenWord.join(" ");
         return;
     }
     NewWord(words);
@@ -82,11 +82,10 @@ button.onclick = () => {
         outputEl.innerHTML = `bokstaven er i ordet på ${exists.length} ${exists.length == 1 ? "sted" : "steder"}`; /*
         inline if evaluates the first expression (in this case exists.length == 1)
         if it is true, it returns the first value after the ?
-        if it is false, it returns the value after :
-        */
+        if it is false, it returns the value after :*/
         for (let i of exists) {
             hiddenWord[i] = letter;
-            wordEl.innerHTML = hiddenWord.join(""); //.toString() converts an array to a string
+            wordEl.innerHTML = hiddenWord.join(" "); //.join() converts an array to a string, with the parameters in the parentheses being used to seperate the values of the array
         }
     }
     usedWords = [...usedWords, letter];

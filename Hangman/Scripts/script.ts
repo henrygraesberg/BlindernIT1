@@ -49,7 +49,7 @@ function NewWord(wordArray: string[]) {
 
         hiddenWord = CreateHidden(ord);
 
-        wordEl.innerHTML = hiddenWord.join("");
+        wordEl.innerHTML = hiddenWord.join(" ");
 
         return;
     }
@@ -124,7 +124,7 @@ button.onclick = () => {
         for(let i of exists) {
             hiddenWord[i] = letter;
 
-            wordEl.innerHTML = hiddenWord.join(""); //.toString() converts an array to a string
+            wordEl.innerHTML = hiddenWord.join(" "); //.join() converts an array to a string, with the parameters in the parentheses being used to seperate the values of the array
         }
     }
 
