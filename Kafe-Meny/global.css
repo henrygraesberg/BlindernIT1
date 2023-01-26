@@ -1,0 +1,65 @@
+:root {
+    font-family: sans-serif;
+}
+
+body {
+    display: grid;
+    place-content: center;
+
+    padding: 2ch 1ch;
+
+    background-image: url("./img/beans.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    background-color: hsl(34 57% 70%);
+    text-align: center;
+
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 2ch;
+}
+
+#heading {
+    font-size: 3rem;
+
+    text-transform: uppercase;
+
+    margin: auto 2ch;
+}
+
+#foodstuffs-container {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: .3rem solid hsl(0, 67%, 20%);
+    border-bottom: .3rem solid hsl(0, 67%, 20%);
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.span-2 {
+    grid-column: span 2;
+
+    margin: auto;
+}
+
+.align-left {
+    text-align: start;
+}
+.align-right {
+    text-align: end;
+}
+
+a, :is(:hover, :link, :active, :visited) {
+    color: inherit;
+}
