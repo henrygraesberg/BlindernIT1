@@ -15,7 +15,7 @@ body {
 }
 
 main {
-    background-color: hsl(34 57% 70%);
+    background-color: hsl(34, 57%, 70%);
     text-align: center;
 
     border-radius: 1rem;
@@ -36,12 +36,14 @@ main {
 
 #foodstuffs-container {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
 
     border-top: .3rem solid hsl(0, 67%, 20%);
     border-bottom: .3rem solid hsl(0, 67%, 20%);
 }
+    #foodstuffs-container > p {
+        margin: .5rem;
+    }
 
 .bold {
     font-weight: 900;
