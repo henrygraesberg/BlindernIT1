@@ -31,7 +31,7 @@ main {
 
     text-transform: uppercase;
 
-    margin: auto 2ch;
+    margin: auto 4ch;
 }
 
 #foodstuffs-container {
@@ -47,6 +47,8 @@ main {
 
 .bold {
     font-weight: 900;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .span-2 {
