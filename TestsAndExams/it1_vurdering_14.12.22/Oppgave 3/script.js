@@ -33,7 +33,7 @@ const MoveBox = () => {
     if(names.length == 1) clearInterval(interval);
 }
 
-const CheckPosition = (currentDirection) => {
+const CheckPosition = currentDirection => {
     if(smallBoxPosition >= 360) {
         RemoveRandom();
         
