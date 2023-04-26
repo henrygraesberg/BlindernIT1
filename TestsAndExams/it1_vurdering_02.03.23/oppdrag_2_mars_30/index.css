@@ -1,0 +1,109 @@
+:root {
+    --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+    --GrayishBlue: hsl(212, 23%, 69%);
+    --LightGrayishBlue: hsl(210, 46%, 95%);
+
+    --MainHeight: 30rem;
+
+    background-color: var(--LightGrayishBlue);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2.5fr 3fr;
+
+    gap: 2.5ch;
+
+    max-width: 110ch;
+    min-width: min-content;
+    min-height: var(--MainHeight);
+    max-height: max-content;
+
+    margin: 2rem auto;
+
+    font-family: sans-serif;
+
+    border-radius: 2ch;
+
+    overflow-x: hidden;
+
+    background-color: white;
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px -2px 7px 2px;
+}
+
+section.left {
+    grid-column: 1;
+
+    overflow: hidden;
+}
+
+section.right {
+    grid-column: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 1ch 5ch 1ch 0;
+}
+
+section.right :is(h1, h2) {
+    color: var(--VeryDarkGrayishBlue);
+}
+
+section.right h1 {
+    font-size: 2em;
+}
+
+section.right p {
+    color: var(--DesaturatedDarkBlue);
+
+    font-size: 1.2em;
+}
+
+.bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.testimony {
+    display: flex;
+
+    height: 75px;
+
+    gap: 3ch
+}
+
+.testimony > div {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.testimony > img {
+    border-radius: 100%;
+}
+
+.testimony > div > :is(h2, p) {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@media (max-width: 55ch) {
+    main {
+        display: flex;
+        flex-direction: column;
+
+        margin: 1ch 1ch;
+    }
+}

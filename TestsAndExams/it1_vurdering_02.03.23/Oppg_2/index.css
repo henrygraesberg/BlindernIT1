@@ -1,0 +1,8 @@
+main {
+    width: 700px;
+
+    margin: auto;
+    padding: .5rem 1rem;
+
+    background-color: grey;
+}
