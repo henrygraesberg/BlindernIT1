@@ -8,6 +8,9 @@
     --Grayish-blue: hsl(233, 8%, 79%);
     --Dark-grayish-blue: hsl(236, 13%, 42%);
     --Very-dark-blue: hsl(240, 100%, 5%);
+
+    /*Other variables*/
+    --Grid-gap: 2ch;
 }
 
 body {
@@ -34,7 +37,7 @@ header {
     > nav {
         display: flex;
         flex-direction: row;
-        gap: 2ch;
+        gap: var(--Grid-gap);
 
         > a, a:link, a:hover, a:visited, a:active {
             color: var(--Dark-grayish-blue);
@@ -47,7 +50,7 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 2ch;
+    gap: var(--Grid-gap);
 }
 
 .featured {
@@ -59,11 +62,12 @@ main {
     }
 
     > div {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        gap: var(--Grid-gap);
+        grid-template-columns: repeat(2, 1fr);
 
         > h1 {
-            font-size: 2rem;
+            font-size: 2.3rem;
             font-weight: 900;
         }
 
@@ -111,6 +115,7 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1ch;
+    align-items: center;
 
     > img {
         grid-row: span 3;
@@ -173,6 +178,7 @@ p {
     }
 
     .featured > div {
+        display: flex;
         flex-direction: column;
     }
 }
