@@ -10,7 +10,7 @@
     --Very-dark-blue: hsl(240, 100%, 5%);
 
     /*Other variables*/
-    --Grid-gap: 2ch;
+    --Grid-gap: 4ch;
 }
 
 body {
@@ -69,6 +69,8 @@ main {
         > h1 {
             font-size: 2.3rem;
             font-weight: 900;
+
+            margin-bottom: .5ch;
         }
 
         > div {
@@ -180,5 +182,7 @@ p {
     .featured > div {
         display: flex;
         flex-direction: column;
+
+        gap: 0;
     }
 }
