@@ -138,7 +138,8 @@ main {
 }
 
 p {
-    color: var(--Dark-grayish-blue) !important
+    color: var(--Dark-grayish-blue) !important;
+    font-size: 15px;
 }
 
 /*Utility classes*/
