@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="script.js"></script>
+
+    <style>
+        img {
+            max-width: 200px;
+
+            border: var(--border) solid black;
+        }
+    </style>
+</head>
+<body>
+    <main style="margin: 10px;">
+        <form>
+            <img src="molekyler-O.jpg" type="button" id="oxygen">
+            <img src="Molekyler-N.jpg" type="button" id="nitrogen">
+            <img src="molekyler-C.jpg" type="button" id="carbon">
+            <br>
+            <input type="number" placeholder="Antall atomer av stoffet">
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        <h1>Molekylet du valgte er: <span></span></h1>
+    </main>
+</body>
+</html>
