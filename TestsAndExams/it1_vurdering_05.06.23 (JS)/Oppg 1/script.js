@@ -9,7 +9,13 @@ const h1Span = document.querySelector("span");
 
 let chosenAtom = "";
 
-class Atom {
+class Molecule {
+    /**
+     * A class a molecule consisting of an atom of oxygen, nitrogen or carbon
+     * 
+     * @param {String} type A string that can be either "O", "N" or "C" which is the of the atom
+     * @param {Number} n    The amount of atoms defined by the "type" variable
+     */
     constructor(type, n) {
         this.type = type;
         this.n = n;
@@ -52,7 +58,7 @@ inputForm.onsubmit = () => {
         return;
     }
 
-    const atom = new Atom(chosenAtom, amount);
+    const atom = new Molecule(chosenAtom, amount);
 
     h1Span.innerHTML = `${chosenAtom}${(amount == 1 ? "" : amount)}H${atom.getHydrogen()}`;
 }
