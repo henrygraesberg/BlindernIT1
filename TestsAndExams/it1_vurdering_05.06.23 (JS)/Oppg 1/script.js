@@ -44,12 +44,12 @@ caButton.onclick = () => {
     chosenAtom = "C";
 }
 
-inputForm.onsubmit = () => {
-    event.preventDefault();
+inputForm.onsubmit = e => {
+    e.preventDefault();
 
     const amount = Number(inputField.value);
 
-    if(amount <= 0 || amount > 50 || Number.isInteger(amount)) {
+    if(amount <= 0 || amount > 50 || Number.isInteger(amount) == false) {
         alert("Antall atomer må være et heltall større enn 0 og mindre enn eller lik 50");
         return;
     }
@@ -60,5 +60,5 @@ inputForm.onsubmit = () => {
 
     const atom = new Molecule(chosenAtom, amount);
 
-    h1Span.innerHTML = `${chosenAtom}${(amount == 1 ? "" : amount)}H${atom.getHydrogen()}`;
+    h1Span.innerHTML = `${atom.type}${(amount == 1 ? "" : amount)}H${atom.getHydrogen()}`;
 }
