@@ -11,7 +11,7 @@ let chosenAtom = "";
 
 class Molecule {
     /**
-     * A class a molecule consisting of an atom of oxygen, nitrogen or carbon
+     * A molecule consisting of atoms of oxygen, nitrogen or carbon
      * 
      * @param {String} type A string that can be either "O", "N" or "C" which is the of the atom
      * @param {Number} n    The amount of atoms defined by the "type" variable
