@@ -60,5 +60,5 @@ inputForm.onsubmit = e => {
 
     const atom = new Molecule(chosenAtom, amount);
 
-    h1Span.innerHTML = `${atom.type}${(amount == 1 ? "" : amount)}H${atom.getHydrogen()}`;
+    h1Span.innerHTML = `${atom.type}${(atom.n == 1 ? "" : atom.n)}H${atom.getHydrogen()}`;
 }
